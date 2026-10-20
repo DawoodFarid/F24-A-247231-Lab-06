@@ -21,24 +21,30 @@ async function lookUp() {
     find.disabled = true;
 
     try {
-        const response = await fetch(`/lookup?item=${encodeURIComponent(name)}`);
+        const response = await fetch(
+            `/api/price?item=${encodeURIComponent(name)}`
+        );
+
         const data = await response.json();
 
-        if (!response.ok || !data.name || data.price == null) {
+        if (response.status === 404) {
             cardName.textContent = '';
             cardPrice.textContent = '';
             status.textContent = `${name} is not in the shop.`;
             return;
         }
 
-        const itemName = data.name;
+        if (!response.ok || !data.item || data.price == null) {
+            throw new Error('Server error');
+        }
+
+        const itemName = data.item;
         const price = Number(data.price);
+        const key = itemName.toLowerCase();
 
         status.textContent = `${itemName}: Rs ${price}`;
         cardName.textContent = itemName;
         cardPrice.textContent = price;
-
-        const key = itemName.toLowerCase();
 
         if (items.has(key)) {
             items.get(key).times++;
@@ -83,8 +89,7 @@ async function lookUp() {
         cardName.textContent = '';
         cardPrice.textContent = '';
         status.textContent = 'The server is not answering.';
-    } finally 
-    {
+    } finally {
         find.disabled = false;
     }
 }
