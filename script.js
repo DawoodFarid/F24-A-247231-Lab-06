@@ -22,14 +22,7 @@ async function lookUp() {
 
     try {
         const response = await fetch(`/lookup?item=${encodeURIComponent(name)}`);
-
-        let data;
-
-        try {
-            data = await response.json();
-        } catch (error) {
-            throw new Error('The server is not answering.');
-        }
+        const data = await response.json();
 
         if (!response.ok || !data.name || data.price == null) {
             cardName.textContent = '';
