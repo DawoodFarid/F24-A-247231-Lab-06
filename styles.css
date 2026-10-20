@@ -26,6 +26,19 @@ main {
     background-color: #e5f0e5;
 }
 
+input {
+    padding: 8px;
+    margin: 5px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 #card {
     padding: 15px;
     border: 1px solid #cccccc;
