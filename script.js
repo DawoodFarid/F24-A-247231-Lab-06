@@ -22,7 +22,14 @@ async function lookUp() {
 
     try {
         const response = await fetch(`/lookup?item=${encodeURIComponent(name)}`);
-        const data = await response.json();
+
+        let data;
+
+        try {
+            data = await response.json();
+        } catch (error) {
+            throw new Error('The server is not answering.');
+        }
 
         if (!response.ok || !data.name || data.price == null) {
             cardName.textContent = '';
@@ -82,7 +89,7 @@ async function lookUp() {
     } catch (error) {
         cardName.textContent = '';
         cardPrice.textContent = '';
-        status.textContent = `${name} is not in the shop.`;
+        status.textContent = 'The server is not answering.';
     } finally {
         find.disabled = false;
     }
