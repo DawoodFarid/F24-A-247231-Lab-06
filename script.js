@@ -1,4 +1,3 @@
-
 const find = document.querySelector('#find');
 const item = document.querySelector('#item');
 const status = document.querySelector('#status');
