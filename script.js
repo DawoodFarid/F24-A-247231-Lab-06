@@ -13,6 +13,7 @@ async function lookUp() {
     const name = item.value.trim();
 
     if (!name) {
+        status.textContent = 'undefined';
         return;
     }
 
