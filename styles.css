@@ -20,6 +20,18 @@ main {
     min-height: 300px;
 }
 
+#card {
+    padding: 15px;
+    border: 1px solid #cccccc;
+    margin-top: 15px;
+}
+
+#card-name,
+#card-price {
+    margin: 5px 0;
+}
+
+
 footer {
     background-color: green;
     color: white;
