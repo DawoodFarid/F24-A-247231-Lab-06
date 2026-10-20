@@ -23,8 +23,11 @@ async function lookUp() {
         const response = await fetch(`/lookup?item=${encodeURIComponent(name)}`);
         const data = await response.json();
 
-        if (!response.ok) {
-            throw new Error('Lookup failed');
+        if (!response.ok || !data.name || data.price == null) {
+            cardName.textContent = '';
+            cardPrice.textContent = '';
+            status.textContent = `${name} is not in the shop.`;
+            return;
         }
 
         const itemName = data.name;
@@ -76,7 +79,9 @@ async function lookUp() {
 
         dearest.textContent = highest;
     } catch (error) {
-        status.textContent = 'Lookup failed.';
+        cardName.textContent = '';
+        cardPrice.textContent = '';
+        status.textContent = `${name} is not in the shop.`;
     } finally {
         find.disabled = false;
     }
