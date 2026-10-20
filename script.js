@@ -83,7 +83,8 @@ async function lookUp() {
         cardName.textContent = '';
         cardPrice.textContent = '';
         status.textContent = 'The server is not answering.';
-    } finally {
+    } finally 
+    {
         find.disabled = false;
     }
 }
