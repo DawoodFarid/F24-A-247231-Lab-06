@@ -2,6 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #f5f7f5;
 }
 
 header {
@@ -20,9 +21,15 @@ main {
     min-height: 300px;
 }
 
+#status {
+    padding: 10px;
+    background-color: #e5f0e5;
+}
+
 #card {
     padding: 15px;
     border: 1px solid #cccccc;
+    background-color: white;
     margin-top: 15px;
 }
 
@@ -31,6 +38,23 @@ main {
     margin: 5px 0;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 10px;
+}
+
+th,
+td {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #e5f0e5;
+}
 
 footer {
     background-color: green;

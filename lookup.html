@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
         <h1>Canteen</h1>
     </header>
@@ -15,10 +16,33 @@
     <main>
         <h2>The Lookup</h2>
 
+        <p id="status">Ready to look up an item.</p>
+
         <section id="card">
-    <h2 id="card-name"></h2>
-    <p id="card-price"></p>
-</section>
+            <h2 id="card-name"></h2>
+            <p id="card-price"></p>
+        </section>
+
+        <section>
+            <h2>The Slip</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Times</th>
+                    </tr>
+                </thead>
+                <tbody id="slip">
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <p>Found: <span id="found">0</span></p>
+            <p>Dearest: <span id="dearest">0</span></p>
+        </section>
     </main>
 
     <footer>
